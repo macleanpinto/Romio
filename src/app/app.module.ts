@@ -11,20 +11,25 @@ import { AppComponent } from './app.component';
 import { GlobalService } from './global.service';
 import { LayoutComponent } from './layout';
 import { NoContentComponent } from './no-content';
+import {DragulaModule} from 'ng2-dragula/ng2-dragula';
+import {DragulaComponent} from './dragula';
 
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [
         AppComponent,
         LayoutComponent,
-        NoContentComponent
+        NoContentComponent,
+        DragulaComponent
+
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
         RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
-        MaterialModule.forRoot()
+        MaterialModule.forRoot(),
+        DragulaModule
     ],
     providers: [
         ENV_PROVIDERS,
