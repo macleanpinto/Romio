@@ -11,8 +11,9 @@ import { AppComponent } from './app.component';
 import { GlobalService } from './global.service';
 import { LayoutComponent } from './layout';
 import { NoContentComponent } from './no-content';
-import {DragulaModule} from 'ng2-dragula/ng2-dragula';
-import {DragulaComponent} from './dragula';
+import { DragulaModule } from 'ng2-dragula/ng2-dragula';
+import { DragulaComponent } from './dragula';
+import { BlockComponent } from './block';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -20,8 +21,8 @@ import {DragulaComponent} from './dragula';
         AppComponent,
         LayoutComponent,
         NoContentComponent,
-        DragulaComponent
-
+        DragulaComponent,
+        BlockComponent
     ],
     imports: [
         BrowserModule,

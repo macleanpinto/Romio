@@ -1,14 +1,45 @@
- <div>
-    <div class='wrapper'>
-      <div class='container' [dragula]='"first-bag"'>
-        <div>You can move these elements between these two containers</div>
-        <div>Moving them anywhere else isn't quite possible</div>
-        <div>There's also the possibility of moving elements around in the same container, changing their position</div>
-      </div>
-      <div class='container' [dragula]='"first-bag"'>
-        <div>This is the default use case. You only need to specify the containers you want to use</div>
-        <div>More interactive use cases lie ahead</div>
-        <div>Make sure to check out the <a href='https://github.com/bevacqua/dragula#readme'>documentation on GitHub!</a></div>
-      </div>
-    </div>
+<md-sidenav-layout [class.m2app-dark]="isDarkTheme">
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+  <header style="height: 50px; border-bottom: 1px solid rgba(45, 45, 45, 0.26);color: #fff;"><i class="fa fa-2x fa-cutlery" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;</i><a routerLink="map">Logo</a></header>
+  <ul>
+  <li><a routerLink="block" routerLinkActive="active-link"><i class="fa fa-1x fa-map-marker"></i>&nbsp;&nbsp;&nbsp;Map</a></li>
+  <li><a routerLink="nocontent" routerLinkActive="active-link">No content</a></li>
+  <li><a href="#contact" routerLinkActive="active-link">Contact</a></li>
+  <li><a href="#about" routerLinkActive="active-link">About</a></li>
+</ul>
+  <!--  <ul class="list-group">
+  <li class="list-group-item"><a routerLink="map">Map</a></li>
+  <li class="list-group-item"><a routerLink="nocontent">No content</a></li>
+  <li class="list-group-item"><a routerLink="map">Map</a></li>
+  
+</ul> -->
+  </md-sidenav>
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+
+    Romio
+
+    <span class="app-toolbar-filler"></span>
+    <button md-icon-button [mdMenuTriggerFor]="menu">
+  <md-icon>more_vert</md-icon>
+</button>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item>
+        <md-icon><i class="fa fa-user" aria-hidden="true"></i></md-icon>
+        <span>User Name</span>
+      </button>
+      <button md-menu-item>
+        <md-icon><i class="fa fa-sign-out" aria-hidden="true"></i></md-icon>
+        <span>Logout</span>
+      </button>
+    </md-menu>
+  </md-toolbar>
+
+  <div class="app-content">
+    <router-outlet></router-outlet>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div>
+
+</md-sidenav-layout>
