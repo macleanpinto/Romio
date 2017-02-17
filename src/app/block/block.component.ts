@@ -19,7 +19,7 @@ export class BlockComponent implements OnInit {
                 no: '1B',
                 pname: 'RI',
                 ename: 'Maclean Pinto',
-                disabled: false
+                disabled: true
             },
             {
                 no: '1C',
@@ -121,20 +121,14 @@ export class BlockComponent implements OnInit {
             },
             {
                 no: '2H',
-                pname: 'RI',
-                ename: 'Maclean Pinto',
                 disabled: false
             },
             {
                 no: '2I',
-                pname: 'RI',
-                ename: 'Maclean Pinto',
                 disabled: false
             },
             {
                 no: '2J',
-                pname: 'RI',
-                ename: 'Maclean Pinto',
                 disabled: false
             },
         ]
