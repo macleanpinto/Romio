@@ -61,18 +61,19 @@ ol {
     }
   }
 
-  p{
-   position: absolute;
-    width: 100px;
-    padding-right:5px;
+  .pname{
+    position: absolute;
     text-align: left;
     font-size: 14px;
     font-weight: bold;
-    line-height: 1.5rem;
-    padding: 4px 0;
-    border-radius: 5px;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
+    line-height: 1rem;
+  }
+  .ename{
+    position: absolute;
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+    top: 60px;
   }
   label {    
     display: block;
