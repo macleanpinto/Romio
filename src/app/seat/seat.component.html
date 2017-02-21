@@ -1,4 +1,5 @@
 <li class="seat">
-  <input type="checkbox" id="{{id}}" />
-  <label for="{{id}}">{{id}}</label>
+  <input type="checkbox" id={{no}} [disabled]="disabled" (change)="onChange($event)"   [(ngModel)]="!this.disabled" />
+  <label for={{no}}>{{no}}</label>
+  <p class="pname"> {{pname}}</p>
 </li>

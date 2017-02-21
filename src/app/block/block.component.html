@@ -2,13 +2,9 @@
   <ol class="cabin fuselage">
     <li class="row" *ngFor="let row of seats">
       <ol class="seats" type="A" *ngFor="let seat of row.seats">
-
-        <li class="seat">
-          <input type="checkbox" id={{seat.no}} [disabled]="seat.disabled" />
-          <label for={{seat.no}}>{{seat.no}}</label>
-          <p> {{seat.pname}}</p>
-        </li>
+        <seat [no]="seat.no" [pname]="seat.pname" [disabled]="seat.disabled" #seats></seat>
       </ol>
     </li>
   </ol>
 </div>
+<button (click)="onSubmit()">Click</button>

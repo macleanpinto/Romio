@@ -205,13 +205,21 @@ module.exports = function (options) {
         prettyPrint: true
       }),
 
-      new ProvidePlugin({
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-        $: 'jquery',
-        'window.Tether': 'tether'
-      }),    
+  new ProvidePlugin({
 
+        jQuery: 'jquery',
+
+        'window.jQuery': 'jquery',
+
+        $: 'jquery',
+
+        'window.Tether': 'tether',
+
+        tether: 'tether',
+
+        Tether: 'tether'
+
+      }),  
       new CheckerPlugin(),
       /*
        * Plugin: CommonsChunkPlugin

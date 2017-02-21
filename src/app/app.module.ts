@@ -14,6 +14,9 @@ import { NoContentComponent } from './no-content';
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 import { DragulaComponent } from './dragula';
 import { BlockComponent } from './block';
+import { SeatComponent } from './seat';
+import { BlockService } from './block/block.service';
+
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -22,7 +25,8 @@ import { BlockComponent } from './block';
         LayoutComponent,
         NoContentComponent,
         DragulaComponent,
-        BlockComponent
+        BlockComponent,
+        SeatComponent
     ],
     imports: [
         BrowserModule,
