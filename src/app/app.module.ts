@@ -16,6 +16,7 @@ import { DragulaComponent } from './dragula';
 import { BlockComponent } from './block';
 import { SeatComponent } from './seat';
 import { BlockService } from './block/block.service';
+import { RequestComponent } from './request';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { BlockService } from './block/block.service';
         NoContentComponent,
         DragulaComponent,
         BlockComponent,
-        SeatComponent
+        SeatComponent,
+        RequestComponent
     ],
     imports: [
         BrowserModule,

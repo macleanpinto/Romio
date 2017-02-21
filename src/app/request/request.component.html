@@ -1,0 +1,42 @@
+<div class="request">
+
+  <form action="">
+    <label for="prName">Project Name:</label>
+    <input type="text" id="prName" name="projectName" placeholder="Enter your text here" required>
+
+    <label for="numSeats">Number of Seats:</label>
+    <input type="number" id="numSeats" name="seats" placeholder="Enter your text here" required><br>
+
+    <label for="bay">Preferred Bay:</label>
+       <select id="bay" name="bay">
+         <option value="talent">Talent Side</option>
+         <option value="insurance">Insurance Side</option>
+       </select>
+
+     <label for="prManager">Project Manager:</label>
+     <input type="text" id="prManager" name="projectManager" placeholder="Enter your text here" required>
+
+     <label for="prDirector">Project Director:</label>
+     <input type="text" id="prDirector" name="projectDirector" placeholder="Enter your text here" required>
+
+     <label for="approval">  Approval Received:</label>
+      <select id="approval" name="approval">
+        <option value="approved">Yes</option>
+        <option value="notApproved">No</option>
+      </select>
+
+      <label for="sDate">Start Date:</label>
+      <input type="date" id="sDate" name="startDate" required>
+
+      <label for="eDate">End Date:</label>
+      <input type="date" id="eDate" name="endDate" required> <br>
+
+      Comments:<br>
+      <textarea name="comments" rows="10" cols="30">
+      </textarea>
+      <br><br>
+
+      <button type="button" onclick="alert('Hello World!')">Submit</button>
+
+  </form>
+</div>
