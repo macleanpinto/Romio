@@ -12,7 +12,7 @@ export class SeatComponent implements OnInit {
     public pname: String = null;
     public disabled: Boolean = true;
 
-    onChange($event) {
+    private onChange($event) {
         this.blockService.pushSeats({ id: $event.target.id, value: this.disabled })
 
     }

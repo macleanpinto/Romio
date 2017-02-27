@@ -2,23 +2,20 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MapService } from './map.service';
-import { routes } from './map.routes';
-import { MapComponent } from './map.component';
+import { routes } from './login.router';
+import { LoginComponent } from './login.component';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
     declarations: [
-        MapComponent,
+        LoginComponent,
     ],
     imports: [
         CommonModule,
         FormsModule,
+        MaterialModule.forRoot(),
         RouterModule.forChild(routes),
-    ],
-    providers: [
-        MapService
     ]
 })
-export class MapModule {
-    public static routes = routes;
+export class LoginModule {
 }

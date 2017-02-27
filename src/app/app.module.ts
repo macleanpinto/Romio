@@ -11,11 +11,9 @@ import { AppComponent } from './app.component';
 import { GlobalService } from './global.service';
 import { LayoutComponent } from './layout';
 import { NoContentComponent } from './no-content';
+import { CanActivateGuard } from './can.activate.guard';
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 import { DragulaComponent } from './dragula';
-import { BlockComponent } from './block';
-import { SeatComponent } from './seat';
-import { BlockService } from './block/block.service';
 import { RequestComponent } from './request';
 
 
@@ -26,20 +24,21 @@ import { RequestComponent } from './request';
         LayoutComponent,
         NoContentComponent,
         DragulaComponent,
-        BlockComponent,
-        SeatComponent,
-        RequestComponent
+        RequestComponent,
+        DragulaComponent
+
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
+        DragulaModule,
         RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
-        MaterialModule.forRoot(),
-        DragulaModule
+        MaterialModule.forRoot()
     ],
     providers: [
         ENV_PROVIDERS,
+        CanActivateGuard,
         GlobalService
     ]
 })

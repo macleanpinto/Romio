@@ -1,0 +1,83 @@
+<section>
+    <h1>Allocation/Deallocation Requests</h1>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label class="" for="Search">Search</label>
+                    <input type="text" name="Search" class="form-control" title="Search" [(ngModel)]="table.searchValue.type" />
+                </div>
+                <div class="form-group">
+                    <label class="" for="PageSize">Page Size</label>
+                    <select class="form-control" name="pageSize" [(ngModel)]="table.pageSize">
+                        <option [ngValue]="5">5</option>
+                        <option [ngValue]="10">10</option>
+                        <option [ngValue]="15">15</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="dropdown" *ngIf="visible">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Select Bay
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let bay of bays.bayList">
+                                <a class="dropdown-item" [routerLink]="['block',{bayName: bay.bayName}]" routerLinkActive="active-link">{{bay.bayName}}</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Project Name</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Req Seats</th>
+                        <th>Preferred Bay</th>
+                        <th>Leadership Apprv</th>
+                        <th>Comment</th>
+                        <th>Process</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="!table.totalFilteredRows">
+                        <td colspan="4" class="text-center">No records found.</td>
+                    </tr>
+                    <tr *ngFor="let request of table.itemsOnCurrentPage">
+                        <td> {{request.requestId}}</td>
+                        <td>{{request.projectName}}</td>
+                        <td>{{request.type}}</td>
+                        <td>{{request.status}}</td>
+                        <td>{{request.seats}}</td>
+                        <td>{{request.bay}}</td>
+                        <td>{{request.apprvl}}</td>
+                        <td>{{request.comment}}</td>
+                        <td>
+                            <button class="btn btn-success" (click)="toggle()">Process</button>
+                            <button class="btn btn-danger" (click)="removeRecordPlugin(request)">Reject</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <pagination [maxPageIndex]="table.maxPageIndex" (pageNumberChanged)="table.currentPageIndex = $event">
+    </pagination>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <pre>
+                <h3>Recently Rejected requests</h3>{{recentlyRemoveReqs | json}}
+            </pre>
+        </div>
+    </div>
+
+</section>
