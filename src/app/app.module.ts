@@ -15,7 +15,8 @@ import { CanActivateGuard } from './can.activate.guard';
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 import { DragulaComponent } from './dragula';
 import { RequestComponent } from './request';
-
+import { NewrequestComponent } from './newrequest';
+import { FormComponent } from './form';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -25,7 +26,9 @@ import { RequestComponent } from './request';
         NoContentComponent,
         DragulaComponent,
         RequestComponent,
-        DragulaComponent
+        DragulaComponent,
+        NewrequestComponent,
+        FormComponent
 
     ],
     imports: [
