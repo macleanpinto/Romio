@@ -1,5 +1,5 @@
 <li class="seat">
-  <input type="checkbox" id={{no}} [disabled]="disabled" (change)="onChange($event)" />
+  <input type="checkbox" id={{no}} [disabled]="disabled" (change)="onChange($event)" [ngModel]="rampDown" />
   <label for={{no}}>{{no}}</label>
   <p class="pname"> {{pname}}</p>
 </li>

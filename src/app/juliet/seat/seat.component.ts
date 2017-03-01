@@ -5,15 +5,16 @@ import { BlockService } from '../block/block.service';
     styleUrls: ['seat.component.scss'],
     templateUrl: 'seat.component.html',
     encapsulation: ViewEncapsulation.None,
-    inputs: ['no', 'pname', 'disabled'],
+    inputs: ['no', 'pname', 'disabled', 'rampDown'],
 })
 export class SeatComponent implements OnInit {
     public no: Number = null;
     public pname: String = null;
-    public disabled: Boolean = true;
+    public disabled: Boolean;
+    private rampDown: boolean;
 
     private onChange($event) {
-        this.blockService.pushSeats({ id: $event.target.id, value: this.disabled })
+        this.blockService.pushSeats({ id: $event.target.id, value: $event.target.checked });
 
     }
 

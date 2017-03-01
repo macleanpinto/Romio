@@ -1,6 +1,5 @@
 <div class="form">
-
-    <input type="radio" name="type" value="rampup" checked> Ramp up<br>
-    <input type="radio" name="type" value="rampdown"> Ramp down<br>
-    <input type="radio" name="type" value="newrequest"> New Project <br> <br>
+    <input type="radio" name="type" value="rampup" checked (click)="onClick($event)"> Ramp up<br>
+    <input type="radio" name="type" value="rampdown" (click)="onClick($event)"> Ramp down<br>
+    <input type="radio" name="type" value="newrequest" (click)="onClick($event)"> New Project <br> <br>
 </div>

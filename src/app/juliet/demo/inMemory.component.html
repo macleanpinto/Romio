@@ -15,17 +15,7 @@
                         <option [ngValue]="15">15</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <div class="dropdown" *ngIf="visible">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Select Bay
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let bay of bays.bayList">
-                                <a class="dropdown-item" [routerLink]="['block',{bayName: bay.bayName}]" routerLinkActive="active-link">{{bay.bayName}}</a>
-                            </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -60,8 +50,21 @@
                         <td>{{request.apprvl}}</td>
                         <td>{{request.comment}}</td>
                         <td>
-                            <button class="btn btn-success" (click)="toggle()">Process</button>
+                            <button class="btn btn-success" (click)="process(request.requestId)">Process</button>
                             <button class="btn btn-danger" (click)="removeRecordPlugin(request)">Reject</button>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <div class="dropdown" *ngIf="visible">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Select Bay
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let bay of bays.bayList">
+                                            <a class="dropdown-item" [routerLink]="['block',{bayName: bay.bayName,type:request.type,requestId:request.requestId}]" routerLinkActive="active-link">{{bay.bayName}}</a>
+                                        </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

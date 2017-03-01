@@ -2,9 +2,9 @@
   <ol class="cabin fuselage">
     <li class="row" *ngFor="let row of seats">
       <ol class="seats" type="A" *ngFor="let seat of row.seats">
-        <seat [no]="seat.no" [pname]="seat.pname" [disabled]="seat.disabled" #seats></seat>
+        <seat [no]="seat.no" [pname]="seat.pname" [disabled]="seat.disabled" [rampDown]="rampDown"></seat>
       </ol>
     </li>
   </ol>
 </div>
-<button (click)="onSubmit()">Click</button>
+<button class="btn btn-success" (click)="onSubmit()">Submit</button>
