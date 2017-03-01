@@ -1,5 +1,93 @@
 <div class="form">
-    <input type="radio" name="type" value="rampup" checked (click)="onClick($event)"> Ramp up<br>
+    <input type="radio" name="type" value="rampup"  (click)="onClick($event)"> Ramp up<br>
     <input type="radio" name="type" value="rampdown" (click)="onClick($event)"> Ramp down<br>
-    <input type="radio" name="type" value="newrequest" (click)="onClick($event)"> New Project <br> <br>
+    <input type="radio" name="type" value="newrequest" checked (click)="onClick($event)"> New Project <br> <br>
+</div>
+
+<div *ngIf="visible">
+  <div class="request">
+      <label for="prName">Project Name:</label>
+         <select id="prName" name="projectName">
+           <option value="pr1">Rhode Island</option>
+           <option value="pr2">North Dakota</option>
+           <option value="pr3">ABC Insurance</option>
+           <option value="pr4">SCB</option>
+         </select>
+
+      <label for="numSeats">Number of Seats:</label>
+      <input type="number" id="numSeats" name="seats" placeholder="Enter your text here" required><br>
+
+      <label for="bay">Preferred Bay:</label>
+         <select id="bay" name="bay">
+           <option value="talent">Talent Side</option>
+           <option value="insurance">Insurance Side</option>
+         </select>
+
+       <label for="prManager">Project Manager:</label>
+       <input type="text" id="prManager" name="projectManager" placeholder="Enter your text here" required>
+
+       <label for="prDirector">Project Director:</label>
+       <input type="text" id="prDirector" name="projectDirector" placeholder="Enter your text here" required>
+
+       <label for="approval">  Approval Received:</label>
+        <select id="approval" name="approval">
+          <option value="approved">Yes</option>
+          <option value="notApproved">No</option>
+        </select>
+
+        <label for="sDate">Start Date:</label>
+        <input type="date" id="sDate" name="startDate" required>
+
+        <label for="eDate">End Date:</label>
+        <input type="date" id="eDate" name="endDate" required> <br>
+
+        Comments:<br>
+        <textarea name="comments" rows="10" cols="30">
+        </textarea>
+        <br><br>
+
+        <button type="button" onclick="onSave($submit)">Submit</button>
+  </div>
+</div>
+
+
+<div *ngIf="!visible">
+  <div class="newrequest">
+        <label for="prName">Project Name:</label>
+        <input type="text" id="prName" name="projectName" placeholder="Enter your text here" required [ng-model]="projectName"><br>
+
+        <label for="numSeats">Number of Seats:</label>
+        <input type="number" id="numSeats" name="seats" placeholder="Enter your text here" required [ng-model]="numSeats"><br>
+
+        <label for="bay">Preferred Bay:</label>
+           <select id="bay" name="bay">
+             <option value="talent">Talent Side</option>
+             <option value="insurance">Insurance Side</option>
+           </select>
+
+         <label for="prManager">Project Manager:</label>
+         <input type="text" id="prManager" name="projectManager" placeholder="Enter your text here" [ng-model]="projectManager" required>
+
+         <label for="prDirector">Project Director:</label>
+         <input type="text" id="prDirector" name="projectDirector" placeholder="Enter your text here" [ng-model]="projectDirector" required>
+
+         <label for="approval">  Approval Received:</label>
+          <select id="approval" name="approval">
+            <option value="approved">Yes</option>
+            <option value="notApproved">No</option>
+          </select>
+
+          <label for="sDate">Start Date:</label>
+          <input type="date" id="sDate" name="startDate" [ng-model]="sDate" required>
+
+          <label for="eDate">End Date:</label>
+          <input type="date" id="eDate" name="endDate" [ng-model]="eDate" required> <br>
+
+          Comments:<br>
+          <textarea name="comments" rows="10" cols="30" [ng-model]="comments">
+          </textarea>
+          <br><br>
+
+          <button type="button" onclick="onSave($submit)">Submit</button>
+    </div>
 </div>
