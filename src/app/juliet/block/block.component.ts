@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlockService } from './block.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Router } from '@angular/router';
 @Component({
     selector: 'block',
     styleUrls: ['block.component.scss'],
@@ -15,7 +16,7 @@ export class BlockComponent implements OnInit {
     private type: String;
     private requestId: number;
     private rampDown: Boolean = false;
-    constructor(private service: BlockService, private route: ActivatedRoute, private http: Http) {
+    constructor(private service: BlockService, private route: ActivatedRoute, private http: Http, private parentRouter: Router) {
 
 
     }
@@ -33,11 +34,11 @@ export class BlockComponent implements OnInit {
         let seatInfoList: {
             seatNo: String,
             isSelected: Boolean
-        }[]=[];
-        let i=0;
+        }[] = [];
+        let i = 0;
         this.service.getSeats().forEach((value: boolean, key: string) => {
-            console.log(key,value);
-            seatInfoList[i]={seatNo:key,isSelected:value};
+            console.log(key, value);
+            seatInfoList[i] = { seatNo: key, isSelected: value };
             i++;
         });
 
@@ -48,7 +49,10 @@ export class BlockComponent implements OnInit {
         });
         this.http.post('http://localhost:8080/saveSeatDetails', body, { headers: headers })
             .subscribe(
-            (response) => { console.log(response.json()); }, //For Success Response
+            (response) => {
+                alert(response.json().message);
+
+            }, //For Success Response
             err => { console.error(err) } //For Error Response
             );
     }
