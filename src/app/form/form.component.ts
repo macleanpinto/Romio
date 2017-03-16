@@ -24,23 +24,34 @@ export class FormComponent {
   private onClick($event) {
     if ($event.target.value == "newrequest") {
       this.visible = false;
-      console.log(this.visible);
     }
     else {
       this.visible = true;
 
-      console.log(this.visible);
     }
   }
 
   private onSave() {
-console.log(this.projectName);
     let headers = new Headers();
 
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', '*');
 
     let body = JSON.stringify({
+      "projectName": this.projectName,
+      "projectManagerEmailId": this.projectManager,
+      "projectDirectorEmailId": this.projectDirector,
+      "projectStartDate": this.sDate,
+      "projectEndDate": this.eDate
+    });
+
+    this.http.post('http://localhost:8080/newProject', body, { headers: headers })
+      .subscribe(
+      (response) => { console.log(response.json()) }, //For Success Response
+      err => { console.error(err) } //For Error Response
+      );
+
+    body = JSON.stringify({
       "projectId": 1,
       "typeOfRequest": "RAMPUP",
       "noOfSeats": this.numSeats,
@@ -54,6 +65,7 @@ console.log(this.projectName);
       (response) => { console.log(response.json()) }, //For Success Response
       err => { console.error(err) } //For Error Response
       );
+
 
     alert("SuccesFully Submited");
   }

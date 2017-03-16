@@ -9,4 +9,5 @@ declare var $;
 })
 
 export class AppComponent {
+    app: String ="Maclean";
 }

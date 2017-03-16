@@ -39,16 +39,19 @@ export class InMemoryComponent implements OnInit {
     }
     setTableData(response) {
         for (let request of response.requestList) {
-            this.table.items.push(new Request({
-                "requestId": request.requestId,
-                "projectName": request.project.projectName,
-                "type": request.typeOfRequest,
-                "status": request.requestStatus,
-                "seats": request.noOfSeats,
-                "bay": request.preferredBay,
-                "apprvl": request.leadershipApprvl,
-                "comment": request.requestComment
-            }));
+            if (request.requestStatus == "PENDING") {
+                this.table.items.push(new Request({
+                    "requestId": request.requestId,
+                    "projectName": request.project.projectName,
+                    "type": request.typeOfRequest,
+                    "status": request.requestStatus,
+                    "seats": request.noOfSeats,
+                    "bay": request.preferredBay,
+                    "apprvl": request.leadershipApprvl,
+                    "comment": request.requestComment
+                }));
+            }
+
 
         }
 
